@@ -3,7 +3,7 @@ import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Statistics from 'components/Statistics';
 import Notification from 'components/Notification';
-import styles from 'components/App.module.css';
+import styles from './style.module.css';
 
 export class App extends React.Component {
   state = {
@@ -12,7 +12,7 @@ export class App extends React.Component {
     bad: 0,
   };
 
-  onBtnClick = feedback => {
+  btnClick = feedback => {
     this.setState(prevState => ({
       [feedback]: prevState[feedback] + 1,
     }));
@@ -26,26 +26,23 @@ export class App extends React.Component {
     return parseInt((this.state.good / this.countTotalFeedback()) * 100);
   };
 
-  stateKeys = Object.keys(this.state);
+  options = Object.keys(this.state);
 
   render() {
     const { good, neutral, bad } = this.state;
-
+    const feedback = this.countTotalFeedback;
     return (
       <container className={styles.container}>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={this.stateKeys}
-            onBtnClick={this.onBtnClick}
-          />
+          <FeedbackOptions options={this.options} onBtnClick={this.btnClick} />
         </Section>
         <Section title="Statistics">
-          {this.countTotalFeedback() > 0 ? (
+          {feedback() > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
-              total={this.countTotalFeedback()}
+              total={feedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
