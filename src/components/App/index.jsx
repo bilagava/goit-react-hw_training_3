@@ -12,6 +12,8 @@ export class App extends React.Component {
     bad: 0,
   };
 
+  options = Object.keys(this.state);
+
   btnClick = feedback => {
     this.setState(prevState => ({
       [feedback]: prevState[feedback] + 1,
@@ -26,23 +28,21 @@ export class App extends React.Component {
     return parseInt((this.state.good / this.countTotalFeedback()) * 100);
   };
 
-  options = Object.keys(this.state);
-
   render() {
     const { good, neutral, bad } = this.state;
-    const feedback = this.countTotalFeedback;
+    const countFeedback = this.countTotalFeedback;
     return (
       <container className={styles.container}>
         <Section title="Please leave feedback">
           <FeedbackOptions options={this.options} onBtnClick={this.btnClick} />
         </Section>
         <Section title="Statistics">
-          {feedback() > 0 ? (
+          {countFeedback() > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
               bad={bad}
-              total={feedback()}
+              total={countFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
