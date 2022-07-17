@@ -4,7 +4,7 @@ import styles from './style.module.css';
 const Section = ({ title, children }) => (
   <section>
     <h2 className={styles.title}>{title}</h2>
-    <>{children}</>
+    {children}
   </section>
 );
 
