@@ -32,7 +32,7 @@ export class App extends React.Component {
     const { good, neutral, bad } = this.state;
     const countFeedback = this.countTotalFeedback;
     return (
-      <dir className={styles.container}>
+      <div className={styles.container}>
         <Section title="Please leave feedback">
           <FeedbackOptions options={this.options} onBtnClick={this.btnClick} />
         </Section>
@@ -49,7 +49,7 @@ export class App extends React.Component {
             <Notification message="There is no feedback" />
           )}
         </Section>
-      </dir>
+      </div>
     );
   }
 }
