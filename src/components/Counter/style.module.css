@@ -1,0 +1,8 @@
+.Сounter__controls {
+  display: flex;
+}
+.Сounter {
+  border: 1px solid tomato;
+  max-width: 250px;
+  text-align: center;
+}
