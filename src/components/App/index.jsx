@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
-import Form from '../Form';
+// import Form from '../Form';
 import ToduList from '../TodoList';
 import TodoEditor from '../TodoList/TodoEditor';
 import Filter from '../TodoList/Filter';
