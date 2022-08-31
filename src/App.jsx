@@ -14,7 +14,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
+      <div style={{ maxWidth: 1160, margin: '0 auto', padding: 20 }}>
         <PokemonForm onSubmit={this.handleFormSubmit} />
         <PokemonInfo pokemonName={this.state.pokemonName} />
         <ToastContainer autoClose={3000} />
